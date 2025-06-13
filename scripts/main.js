@@ -3,11 +3,13 @@ import { createProduct } from './createProduct.js';
 import { addLighting } from './addLighting.js';
 import { setupInteractions } from './interaction.js';
 import { animateCamera } from './cameraAnimation.js';
+import { createUI } from './ui.js';
 import * as THREE from 'https://esm.sh/three';
 import * as TWEEN from 'https://unpkg.com/@tweenjs/tween.js/dist/tween.esm.js';
 
 let scene, camera, renderer, controls, productParts;
 let autoRotate = true;
+let rotationSpeed = 1.0;
 
 function createToggleButton() {
     const button = document.createElement('button');
@@ -21,6 +23,7 @@ function createToggleButton() {
     button.style.border = 'none';
     button.style.borderRadius = '5px';
     button.style.cursor = 'pointer';
+    button.style.zIndex = '1000';
     
     button.addEventListener('click', () => {
         autoRotate = !autoRotate;
@@ -29,6 +32,10 @@ function createToggleButton() {
     });
     
     document.body.appendChild(button);
+}
+
+function updateRotationSpeed(speed) {
+    rotationSpeed = speed;
 }
 
 function main() {
@@ -42,6 +49,9 @@ function main() {
     addLighting(scene);
     setupInteractions(scene, camera, renderer, productParts);
     createToggleButton();
+    
+    // Create UI with controls
+    const ui = createUI(scene, productParts, updateRotationSpeed);
 
     animate();
 }
@@ -51,7 +61,7 @@ function animate() {
 
     // Update camera animation only if auto-rotate is enabled
     if (autoRotate) {
-        animateCamera(camera);
+        animateCamera(camera, rotationSpeed);
     }
 
     // Required for OrbitControls damping

@@ -1,7 +1,7 @@
 import * as THREE from 'https://esm.sh/three';
 
-export function animateCamera(camera) {
-  const time = Date.now() * 0.0005;
+export function animateCamera(camera, speed = 1.0) {
+  const time = Date.now() * 0.001 * speed;
   const radius = 5;
 
   camera.position.x = Math.sin(time) * radius;
