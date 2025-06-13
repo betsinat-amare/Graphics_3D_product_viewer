@@ -12,38 +12,6 @@ An interactive 3D product viewer built with Three.js that allows users to explor
 - Realistic lighting and shadows
 - Responsive design
 
-## Setup
-
-1. Clone the repository:
-
-```bash
-git clone [your-repository-url]
-```
-
-2. Navigate to the project directory:
-
-```bash
-cd Interactive_3D_product_viewer
-```
-
-3. Start a local server (using any of these methods):
-
-```bash
-# Using Python
-python -m http.server
-
-# Using Node.js
-npx serve
-
-# Using PHP
-php -S localhost:8000
-```
-
-4. Open your browser and navigate to:
-
-- For Python: `http://localhost:8000`
-- For Node.js: `http://localhost:3000`
-- For PHP: `http://localhost:8000`
 
 ## Usage
 
