@@ -12,7 +12,6 @@ An interactive 3D product viewer built with Three.js that allows users to explor
 - Realistic lighting and shadows
 - Responsive design
 
-
 ## Usage
 
 - **Camera Controls:**
